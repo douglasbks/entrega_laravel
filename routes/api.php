@@ -15,6 +15,4 @@ use App\Http\Controllers\PedidoController;
 |
 */
 
-Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
-    return $request->user();
-});
+Route::resource('pedidos', PedidoController::class);

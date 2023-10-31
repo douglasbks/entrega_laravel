@@ -17,6 +17,7 @@ class Pedido extends Model
         'valor_frete',
         'codigo',
         'data_entrega',
+        'id_cliente',
     ];
 
     public $timestamps = true;
