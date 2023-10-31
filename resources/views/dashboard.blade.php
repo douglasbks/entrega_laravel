@@ -24,7 +24,7 @@
     <nav class="navbar navbar-expand-lg navbar-dark bg-primary mb-5">
       <div class="container">
         <a class="navbar-brand">
-           <img src="logo.png" width="150" height="50" alt="Orçamento pessoal">
+           <img src="logo.png" width="150" height="50" alt="Logo Brudam">
         </a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
@@ -44,6 +44,10 @@
           <select class="form-control" id="ano">
             <option value="">Ano</option>
             <option value="2021">2021</option>
+            <option value="2022">2022</option>
+            <option value="2023">2023</option>
+            <option value="2024">2024</option>
+            <option value="2025">2025</option>
           </select>
         </div>
 
@@ -72,11 +76,9 @@
         <div class="col-md-6">
           <select class="form-control" id="tipo">
             <option value="">Cliente</option>
-            <option value="1">Alimentação</option>
-            <option value="2">Educação</option>
-            <option value="3">Lazer</option>
-            <option value="4">Saúde</option>
-            <option value="5">Transporte</option>
+            @foreach($clientes as $cliente)
+              <option value="{{$cliente['nome']}}">{{$cliente['nome']}}</option>
+            @endforeach
           </select>
         </div>
       </div>
@@ -91,7 +93,7 @@
         </div>
 
         <div class="col-md-2 d-flex justify-content-end">
-          <button type="button" class="btn btn-primary" onclick="pesquisarDespesa()">
+          <button type="button" class="btn btn-primary">
             <i class="fas fa-search"></i>
           </button>
         </div>
@@ -113,17 +115,17 @@
             </thead>
 
             <tbody id="listaPedidos">
-            
+            @foreach($dados as $dado)
                 <tr>
-                    <td>Descrição</td>
-                    <td>0348058340583409589405</td>
-                    <td>R$ 100,00</td>
-                    <td>R$ 10,00</td>
-                    <td>30/10/2023 19:56</td>
-                    <td>03/11/2023 08:30</td>
-                    <td>Douglas</td>
+                    <td>{{$dado['descricao']}}</td>
+                    <td>{{$dado['codigo']}}</td>
+                    <td>R$ {{number_format($dado['valor'], 2, ',', '.')}}</td>
+                    <td>R$ {{number_format($dado['valor_frete'], 2, ',', '.')}}</td>
+                    <td>{{date('d/m/Y H:i', strtotime($dado['data_criacao']))}}</td>
+                    <td>{{date('d/m/Y H:i', strtotime($dado['data_entrega']))}}</td>
+                    <td>{{$dado['nome']}}</td>
                 </tr>
-            
+            @endforeach
             </tbody>
           </table>
         </div>
