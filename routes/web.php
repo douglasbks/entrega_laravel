@@ -15,3 +15,4 @@ use App\Http\Controllers\RelatorioController;
 */
 
 Route::get('/', [RelatorioController::class, 'index']);
+Route::get('pedidos/ajax', [RelatorioController::class, 'data'])->name('pedidos.ajax');
