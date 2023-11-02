@@ -1,14 +1,14 @@
 # Passo a passo:
 
-1-executar o comando composer install no terminal
+1-Executar o comando 'composer install' no terminal
 
-2-executar o comando php artisan key:generate
+2-Executar o comando 'php artisan key:generate' no terminal
 
-3-executar o arquivo teste_brudam.sql no mysql
+3-Executar o arquivo 'teste_brudam.sql' no mysql
 
-4-executar o comando php artisan serve para iniciar o servidor web local
+4-Executar o comando 'php artisan serve' no terminal para iniciar o servidor web local
 
-5-enviar um json conforme exemplo para a rota localhost/api/pedidos
+5-Enviar um json conforme exemplo para a rota 'localhost/api/pedidos'
 
 exemplo:
 
@@ -20,9 +20,9 @@ exemplo:
     "id_cliente": 2
 }
 
-6-acessar a url localhost para ver os relatórios
+6-Acessar a url 'localhost' para ver os relatórios
 
-7-clientes podem ser criados na rota localhost/api/clientes utilizando o padrão:
+7-Clientes podem ser criados na rota 'localhost/api/clientes' utilizando o padrão:
 
 {
     "nome": "Cliente Exemplo",
